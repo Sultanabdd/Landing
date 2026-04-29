@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description"
+    content="LUMEN — institutional-grade crude oil trading platform. Real-time quotes, deep liquidity, predictive analytics." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUMEN — Premium Oil Trading Platform" />
+  <meta property="og:description"
+    content="Institutional-grade crude oil trading. Real-time quotes, deep liquidity, predictive analytics." />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LUMEN — Premium Oil Trading Platform" />
+  <meta name="twitter:description" content="Control the flow of black turquoise." />
+
+  <title>LUMEN — Premium Oil Trading Platform</title>
+
+  <!-- Inline SVG favicon: turquoise "L" monogram on dark square -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23050505'/%3E%3Cpath d='M22 16v32h22' fill='none' stroke='%23C8A84B' stroke-width='4' stroke-linecap='square'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <script>
+    // Always open/reload this page at the top.
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    function forceScrollTop() {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+
+    // If the URL contains a section hash, remove it on reload/open
+    // so the browser cannot jump to that anchor.
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    forceScrollTop();
+    window.addEventListener('DOMContentLoaded', forceScrollTop, { once: true });
+    window.addEventListener('load', forceScrollTop, { once: true });
+    window.addEventListener('pageshow', forceScrollTop);
+    setTimeout(forceScrollTop, 0);
+    setTimeout(forceScrollTop, 120);
+  </script>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero">
+
+    <!-- Слой 1: Фоновый GIF (z-index: 0) -->
+    <div class="hero__video-wrap">
+      <img class="hero__video" src="assets/oil-bg.gif" alt="" aria-hidden="true" />
+    </div>
+
+    <!-- Слой 1b: Затемняющий оверлей поверх видео -->
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <!-- Слой 2: Радиальный градиент (виньетка) -->
+    <div class="hero__gradient" aria-hidden="true"></div>
+
+    <!-- Слой 2b: Техническая сетка (инструментное стекло) -->
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <!-- Слой 3: Зернистость / film grain -->
+    <div class="hero__noise" aria-hidden="true"></div>
+
+    <!-- Слой 4: Контент -->
+    <div class="hero__content">
+
+      <!-- ── NAVBAR ────────────────────────────────────────── -->
+      <nav class="navbar" id="navbar" aria-label="Primary navigation">
+        <!-- Левая часть: логотип -->
+        <div class="navbar__brand">
+          <span class="navbar__brand-text">LUMEN</span>
+        </div>
+
+        <!-- Центральная часть: пункты меню -->
+        <ul class="navbar__nav" role="list">
+          <li class="navbar__item">
+            <a href="#features" class="navbar__link" id="nav-ecosystem">
+              <span class="navbar__num">01.</span> ECOSYSTEM
+            </a>
+          </li>
+          <li class="navbar__item">
+            <a href="#cta" class="navbar__link" id="nav-liquidity">
+              <span class="navbar__num">02.</span> LIQUIDITY POOLS
+            </a>
+          </li>
+        </ul>
+
+        <!-- Правая часть: статус -->
+        <div class="navbar__status" aria-label="Connection status">
+          STATUS: <span class="status-connected" id="status-label">CONNECTED</span>
+        </div>
+      </nav>
+
+      <!-- ── HERO GRID ─────────────────────────────────────── -->
+      <div class="hero-container" id="hero-container">
+
+        <!-- Левая колонка: контент -->
+        <div class="hero-left" id="hero-left">
+
+          <!-- Заголовок -->
+          <h1 class="hero-title" id="hero-title">
+            Control the<br />
+            Flow of<br />
+            <span class="hero-title__cyan">Black Turquoise.</span>
+          </h1>
+
+          <!-- Подзаголовок -->
+          <p class="hero-subtitle" id="hero-subtitle">
+            Institutional-grade crude oil trading platform.<br />
+            Real-time quotes, deep liquidity,<br />and predictive analytics.
+          </p>
+
+          <!-- Кнопки -->
+          <div class="hero-actions" id="hero-actions">
+            <button class="btn btn--primary" id="btn-start-trading" type="button">
+              Start Trading
+            </button>
+            <div class="btn-secondary-wrapper">
+              <button class="btn btn--secondary" id="btn-view-markets" type="button">
+                View Markets
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      <!-- /hero-container -->
+
+    </div>
+    <!-- /hero__content -->
+
+  </section>
+  <!-- /hero -->
+
+  <!-- ===================== FEATURES SECTION ===================== -->
+  <section class="features" id="features" aria-labelledby="features-heading">
+
+    <!-- Section heading -->
+    <h2 class="features__heading" id="features-heading">Institutional-Grade Infrastructure</h2>
+
+    <!-- Grid of 3 cards -->
+    <div class="features-grid">
+
+      <!-- Card 1: AI Analytics -->
+      <article class="feature-card" id="feature-ai">
+        <div class="feature-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="5" stroke="currentColor" stroke-width="1" fill="none" />
+            <line x1="14" y1="2" x2="14" y2="8" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="14" y1="20" x2="14" y2="26" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="2" y1="14" x2="8" y2="14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="20" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="5.5" y1="5.5" x2="9.8" y2="9.8" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="18.2" y1="18.2" x2="22.5" y2="22.5" stroke="currentColor" stroke-width="1"
+              stroke-linecap="round" />
+            <line x1="22.5" y1="5.5" x2="18.2" y2="9.8" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <line x1="9.8" y1="18.2" x2="5.5" y2="22.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h3 class="feature-card__title">AI-Powered Analytics</h3>
+        <p class="feature-card__text">Predictive models for global crude oil price movements with 94% accuracy.</p>
+      </article>
+
+      <!-- Card 2: Latency -->
+      <article class="feature-card" id="feature-latency">
+        <div class="feature-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="2,22 8,14 13,18 19,8 26,12" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+              stroke-linejoin="round" fill="none" />
+            <circle cx="26" cy="12" r="2" stroke="currentColor" stroke-width="1" fill="none" />
+          </svg>
+        </div>
+        <h3 class="feature-card__title">Ultra-Low Latency</h3>
+        <p class="feature-card__text">HFT-ready matching engine executed in under 15 microseconds.</p>
+      </article>
+
+      <!-- Card 3: Liquidity -->
+      <article class="feature-card" id="feature-liquidity">
+        <div class="feature-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="10" width="22" height="14" rx="2" stroke="currentColor" stroke-width="1" fill="none" />
+            <rect x="7" y="6" width="14" height="6" rx="2" stroke="currentColor" stroke-width="1" fill="none" />
+            <rect x="11" y="2" width="6" height="6" rx="2" stroke="currentColor" stroke-width="1" fill="none" />
+            <line x1="8" y1="10" x2="8" y2="24" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+            <line x1="14" y1="10" x2="14" y2="24" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+            <line x1="20" y1="10" x2="20" y2="24" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+          </svg>
+        </div>
+        <h3 class="feature-card__title">Deep Liquidity Pools</h3>
+        <p class="feature-card__text">Aggregate access to tier-1 bank liquidity and dark pools.</p>
+      </article>
+
+    </div>
+    <!-- /features-grid -->
+
+  </section>
+  <!-- /features -->
+
+  <!-- ===================== PROCESS SECTION ===================== -->
+  <section class="process" id="process" aria-labelledby="process-heading">
+
+    <div class="process__top">
+      <span class="process__eyebrow">HOW IT WORKS</span>
+      <h2 class="process__heading" id="process-heading">
+        From Access to Execution<br />in Three Steps.
+      </h2>
+    </div>
+
+    <ol class="process__steps" role="list">
+
+      <li class="process__step" id="process-step-1">
+        <div class="process__step-num" aria-hidden="true">01</div>
+        <div class="process__connector" aria-hidden="true"></div>
+        <div class="process__step-body">
+          <h3 class="process__step-title">Request Access</h3>
+          <p class="process__step-text">
+            Submit institutional credentials for KYC/AML review.
+            Onboarding is completed within 24 hours — no retail queue.
+          </p>
+        </div>
+      </li>
+
+      <li class="process__step" id="process-step-2">
+        <div class="process__step-num" aria-hidden="true">02</div>
+        <div class="process__connector" aria-hidden="true"></div>
+        <div class="process__step-body">
+          <h3 class="process__step-title">Connect & Analyse</h3>
+          <p class="process__step-text">
+            Access real-time Brent, WTI and Ural feeds.
+            AI models surface price signals, volatility windows and
+            correlation shifts before they move the market.
+          </p>
+        </div>
+      </li>
+
+      <li class="process__step" id="process-step-3">
+        <div class="process__step-num" aria-hidden="true">03</div>
+        <div class="process__connector process__connector--last" aria-hidden="true"></div>
+        <div class="process__step-body">
+          <h3 class="process__step-title">Execute at Depth</h3>
+          <p class="process__step-text">
+            Route orders through tier-1 bank liquidity and dark pools.
+            Sub-15 µs matching engine. Full prime-brokerage settlement.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+
+  </section>
+  <!-- /process -->
+
+  <!-- ===================== CTA SECTION ===================== -->
+  <section class="cta-section" id="cta" aria-labelledby="cta-heading">
+
+    <!-- Layer 1: Black crude-oil flow video (looped, viscous) -->
+    <div class="cta-section__video-wrap" aria-hidden="true">
+      <video class="cta-section__video" id="cta-oil-video" autoplay loop muted playsinline webkit-playsinline preload="auto"
+        disablepictureinpicture disableremoteplayback>
+        <source src="assets/oil-flow.mp4" type="video/mp4" />
+        <source src="assets/oil-flow.mp4" type="video/quicktime" />
+      </video>
+    </div>
+
+    <!-- Layer 2: dark vignette + warm amber tint -->
+    <div class="cta-section__veil" aria-hidden="true"></div>
+
+    <!-- Layer 3: film grain -->
+    <div class="cta-section__noise" aria-hidden="true"></div>
+
+    <div class="cta-inner">
+
+      <!-- Decorative top line -->
+      <div class="cta-rule" aria-hidden="true"></div>
+
+      <h2 class="cta-heading" id="cta-heading">Initiate Access.</h2>
+
+      <p class="cta-subheading">Join a select network of global energy traders.</p>
+
+      <button class="btn btn--cta" id="btn-cta-access" type="button">
+        Request Institutional Access
+      </button>
+
+    </div>
+
+  </section>
+  <!-- /cta-section -->
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="lumen-footer" id="footer" role="contentinfo">
+
+    <!-- Left: brand -->
+    <div class="footer-brand">
+      <span class="footer-brand__logo">LUMEN</span>
+      <span class="footer-brand__tagline">Premium Oil Trading Platform</span>
+    </div>
+
+    <!-- Center: nav links -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#" class="footer-nav__link" id="footer-privacy">Privacy Policy</a>
+      <span class="footer-nav__dot" aria-hidden="true">·</span>
+      <a href="#" class="footer-nav__link" id="footer-terms">Terms of Service</a>
+      <span class="footer-nav__dot" aria-hidden="true">·</span>
+      <a href="#" class="footer-nav__link" id="footer-api">API Documentation</a>
+    </nav>
+
+    <!-- Right: system status -->
+    <div class="footer-status" aria-label="System status">
+      System: <span class="footer-status__value">Online</span>
+      &nbsp;·&nbsp;
+      Latency: <span class="footer-status__value">12ms</span>
+    </div>
+
+  </footer>
+  <!-- /lumen-footer -->
+
+  <!-- ===================== PREMIUM JS INTERACTIONS ===================== -->
+  <script>
+    /* ──────────────────────────────────────────────────────────────────
+       1. 3D CARD TILT  —  .dashboard-mockup
+       Applies CSS custom props --tilt-x / --tilt-y on mouse move
+       over the right half of the hero section.
+    ────────────────────────────────────────────────────────────────── */
+    /* ──────────────────────────────────────────────────────────────────
+       1. 3D CARD TILT  —  .dashboard-mockup
+       Uses a requestAnimationFrame LERP loop so the card follows the
+       cursor with inertia ("heavy hydraulics") rather than snapping.
+    ────────────────────────────────────────────────────────────────── */
+    (function initCardTilt() {
+      const card = document.getElementById('dashboard-mockup');
+      const heroEl = document.getElementById('hero');
+      if (!card || !heroEl) return;
+
+      /* ── Mobile guard: skip tilt entirely on touch devices ─────────
+         On touchscreens there is no mouse cursor precision, the card
+         snaps on every tap gesture and fights with page scroll.
+         We bail out early and ensure the card sits flat.           */
+      const isTouchScreen =
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+      if (isTouchScreen) {
+        card.style.transform = 'none';
+        card.style.willChange = 'auto';
+        return;   /* ← exit: no event listeners, no rAF loop          */
+      }
+
+      const MAX_DEG = 8;     // maximum tilt in degrees
+      const LERP_AMT = 0.07;  // how much to close the gap per frame (0–1)
+      // 0.07 ≈ 7 % → feels heavy / hydraulic
+
+      /* Current (rendered) angles */
+      let curX = 0, curY = 0;
+      /* Target angles set by mousemove */
+      let tgtX = 0, tgtY = 0;
+      /* Is the rAF loop running? */
+      let rafId = null;
+      /* Is the cursor over the hero? */
+      let active = false;
+
+      /* Write the current angles directly to the card's transform.
+         No CSS transition is set, so rAF has full control. */
+      function applyTransform() {
+        card.style.transform =
+          `rotateX(${curX.toFixed(3)}deg) rotateY(${curY.toFixed(3)}deg)`;
+      }
+
+      /* Linear interpolation helper */
+      function lerp(a, b, t) { return a + (b - a) * t; }
+
+      /* rAF loop — runs only while needed */
+      function tick() {
+        curX = lerp(curX, tgtX, LERP_AMT);
+        curY = lerp(curY, tgtY, LERP_AMT);
+
+        applyTransform();
+
+        /* Keep looping while active OR while still moving back to zero */
+        const stillMoving = Math.abs(curX) > 0.01 || Math.abs(curY) > 0.01;
+        if (active || stillMoving) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          /* Snap to exactly zero and stop the loop */
+          curX = 0; curY = 0;
+          applyTransform();
+          rafId = null;
+        }
+      }
+
+      function startLoop() {
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }
+
+      /* Recalculate target angles from mouse position */
+      heroEl.addEventListener('mousemove', function (e) {
+        const rect = card.getBoundingClientRect();
+        /* Normalise relative to card centre:  -1 … +1 */
+        const cx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const cy = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+        /* Clamp to card bounds so moving outside doesn't spike angles */
+        const clampedX = Math.max(-1, Math.min(1, cx));
+        const clampedY = Math.max(-1, Math.min(1, cy));
+
+        tgtY = clampedX * MAX_DEG;   /* horizontal → Y-axis rotation */
+        tgtX = -clampedY * MAX_DEG;   /* vertical   → X-axis rotation */
+
+        active = true;
+        startLoop();
+      }, { passive: true });
+
+      heroEl.addEventListener('mouseleave', function () {
+        active = false;  /* target stays 0,0 — loop will LERP back */
+        tgtX = 0;
+        tgtY = 0;
+        startLoop();     /* ensure loop is running to do the spring-back */
+      }, { passive: true });
+    })();
+
+
+
+
+    /* ──────────────────────────────────────────────────────────────────
+       2. PRICE TICKER  —  live market data simulation
+       Randomly updates prices; on each tick the .market-row briefly
+       gets the .market-row--tick class (cyan background glow).
+    ────────────────────────────────────────────────────────────────── */
+    (function initPriceTicker() {
+      const rows = [
+        {
+          rowId: 'market-brent',
+          valueMin: 80, valueMax: 95,
+          changeMin: -2.5, changeMax: 3.5,
+        },
+        {
+          rowId: 'market-wti',
+          valueMin: 75, valueMax: 90,
+          changeMin: -3, changeMax: 3,
+        },
+        {
+          rowId: 'market-ural',
+          valueMin: 65, valueMax: 80,
+          changeMin: -2, changeMax: 2,
+        },
+      ];
+
+      /* Initialise state from current DOM values */
+      rows.forEach(r => {
+        const row = document.getElementById(r.rowId);
+        if (!row) return;
+        const val = row.querySelector('.market-price__value');
+        const chg = row.querySelector('.market-price__change');
+        r.price = parseFloat(val.textContent.replace('$', '')) || r.valueMin;
+        r._val = val;
+        r._chg = chg;
+      });
+
+      function rand(lo, hi) {
+        return lo + Math.random() * (hi - lo);
+      }
+
+      function tickRow(r) {
+        if (!r._val || !r._chg) return;
+
+        /* Small random walk */
+        const delta = rand(-0.35, 0.35);
+        r.price = Math.max(r.valueMin, Math.min(r.valueMax, r.price + delta));
+        const pct = rand(r.changeMin, r.changeMax);
+        const up = pct >= 0;
+
+        r._val.textContent = `$${r.price.toFixed(2)}`;
+        r._chg.textContent = up
+          ? `+${pct.toFixed(2)}%`
+          : `${pct.toFixed(2)}%`;
+
+        r._chg.className =
+          'market-price__change ' +
+          (up ? 'market-price__change--up' : 'market-price__change--down');
+
+        /* Turquoise flash on the whole row */
+        const row = document.getElementById(r.rowId);
+        if (!row) return;
+        row.classList.add('market-row--tick');
+        setTimeout(() => row.classList.remove('market-row--tick'), 500);
+      }
+
+      /* Stagger initial ticks so they don't all fire simultaneously */
+      rows.forEach((r, i) => {
+        setTimeout(function loop() {
+          tickRow(r);
+          setTimeout(loop, rand(1800, 4200));
+        }, i * 700);
+      });
+    })();
+
+
+    /* ──────────────────────────────────────────────────────────────────
+       3. BUTTON OIL-SLICK SHIMMER  —  .btn--primary
+       Tracks cursor within the button and updates --shine-x / --shine-y
+       CSS custom properties that drive the ::after radial gradient.
+    ────────────────────────────────────────────────────────────────── */
+    (function initButtonShimmer() {
+      document.querySelectorAll('.btn--primary').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+          const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+          btn.style.setProperty('--shine-x', `${x}%`);
+          btn.style.setProperty('--shine-y', `${y}%`);
+        }, { passive: true });
+      });
+    })();
+
+
+    /* ──────────────────────────────────────────────────────────────────
+       4. VIDEO — Slow playback + mobile freeze + graceful failure
+       Applies to BOTH the hero background and the CTA oil-flow video.
+       playbackRate < 1 on all devices → "viscous crude oil" feel.
+       On touch devices freeze after 5s to save battery.
+       If autoplay is blocked OR the source 404s → hide the video so
+       the section gracefully falls back to its solid black backdrop.
+    ────────────────────────────────────────────────────────────────── */
+    (function initVideos() {
+      const videos = [
+        { el: document.querySelector('.hero__video'),        rate: 0.40 },
+        { el: document.querySelector('.cta-section__video'), rate: 0.35 },
+      ];
+
+      const isTouchDevice =
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia('(hover: none)').matches;
+
+      videos.forEach(function (item) {
+        const video = item.el;
+        if (!video || !(video instanceof HTMLVideoElement)) return;
+
+        video.removeAttribute('controls');
+
+        function applySlowRate() { video.playbackRate = item.rate; }
+        if (video.readyState >= 1) {
+          applySlowRate();
+        } else {
+          video.addEventListener('loadedmetadata', applySlowRate, { once: true });
+        }
+
+        /* Hide the video if the source can't load (404, decode error). */
+        video.addEventListener('error', function () {
+          video.style.display = 'none';
+        });
+        const src = video.querySelector('source');
+        if (src) {
+          src.addEventListener('error', function () {
+            video.style.display = 'none';
+          });
+        }
+
+        /* Force-play. If autoplay is blocked → hide rather than show
+           the overlay play button. */
+        var playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function () {
+            video.style.display = 'none';
+          });
+        }
+
+        if (isTouchDevice) {
+          setTimeout(function () { video.pause(); }, 5000);
+        }
+      });
+    })();
+
+
+    /* ──────────────────────────────────────────────────────────────────
+       5. FIX REVEAL <-> TILT CONFLICT
+       CSS reveal-up holds its final keyframe via animation-fill: both.
+       Once it completes, freeze opacity/transform inline and strip the
+       animation so the rAF tilt loop has exclusive control of transform.
+    ────────────────────────────────────────────────────────────────── */
+    (function fixRevealTiltConflict() {
+      const card = document.getElementById('dashboard-mockup');
+      if (!card) return;
+
+      card.addEventListener('animationend', function handler(e) {
+        if (e.animationName !== 'reveal-up') return;
+        card.style.opacity = '1';
+        card.style.animation = 'none';
+        card.removeEventListener('animationend', handler);
+      });
+    })();
+
+
+    /* ──────────────────────────────────────────────────────────────────
+       6. GRID CONNECTION DOTS — rare amber flickers on the tech grid
+       Renders glowing dots on a canvas above the grid layer.
+       Dots sit at cell intersections and fade in/out independently.
+    ────────────────────────────────────────────────────────────────── */
+    (function initGridDots() {
+      const hero = document.getElementById('hero');
+      if (!hero) return;
+
+      const canvas = document.createElement('canvas');
+      canvas.setAttribute('aria-hidden', 'true');
+      canvas.style.cssText =
+        'position:absolute;inset:0;width:100%;height:100%;' +
+        'pointer-events:none;z-index:3;';
+      /* Insert before hero__noise so grain sits on top */
+      const noise = hero.querySelector('.hero__noise');
+      hero.insertBefore(canvas, noise || null);
+
+      const ctx = canvas.getContext('2d');
+      const CELL = 72;    /* must match CSS background-size */
+      const CHANCE = 0.06;  /* probability a dot is lit per reassignment */
+      let dots = [];
+
+      function buildDots() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        dots = [];
+        for (var x = CELL; x < canvas.width - CELL * 0.5; x += CELL) {
+          for (var y = CELL; y < canvas.height - CELL * 0.5; y += CELL) {
+            dots.push({
+              x: x, y: y,
+              alpha: 0,
+              target: Math.random() < CHANCE ? Math.random() * 0.42 : 0,
+              speed: 0.004 + Math.random() * 0.008
+            });
+          }
+        }
+      }
+
+      buildDots();
+      window.addEventListener('resize', buildDots, { passive: true });
+
+      function frame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < dots.length; i++) {
+          var d = dots[i];
+          /* Occasionally reassign target */
+          if (Math.random() < 0.0015) {
+            d.target = Math.random() < CHANCE ? Math.random() * 0.42 : 0;
+          }
+          /* Lerp */
+          d.alpha += (d.target - d.alpha) * d.speed;
+
+          if (d.alpha < 0.005) continue;
+
+          var g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, 5);
+          g.addColorStop(0, 'rgba(0,229,255,' + (d.alpha * 0.9).toFixed(3) + ')');
+          g.addColorStop(0.5, 'rgba(0,229,255,' + (d.alpha * 0.3).toFixed(3) + ')');
+          g.addColorStop(1, 'rgba(0,229,255,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, 5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      requestAnimationFrame(frame);
+    })();
+
+
+    (function initOilChart() {
+      const chart = document.getElementById('oil-chart');
+      if (!chart) return;
+
+      const path = chart.querySelector('.oil-chart__path');
+      const fill = chart.querySelector('.oil-chart__fill');
+      const endpoint = chart.querySelector('.oil-chart__endpoint');
+      const tipPrice = document.getElementById('tip-price');
+
+      const width = 600;
+      const height = 300;
+      const pointsCount = 12;
+      let points = [];
+
+      // Initialize points
+      for (let i = 0; i < pointsCount; i++) {
+        points.push({
+          x: (i / (pointsCount - 1)) * width,
+          y: height / 2 + (Math.random() - 0.5) * 100,
+          baseY: height / 2,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.01 + Math.random() * 0.02
+        });
+      }
+
+      function getSplinePath(pts) {
+        if (pts.length < 2) return '';
+        let d = `M ${pts[0].x} ${pts[0].y}`;
+        for (let i = 0; i < pts.length - 1; i++) {
+          const p0 = pts[i];
+          const p1 = pts[i + 1];
+          const cp1x = p0.x + (p1.x - p0.x) / 2;
+          const cp1y = p0.y;
+          const cp2x = p0.x + (p1.x - p0.x) / 2;
+          const cp2y = p1.y;
+          d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p1.x} ${p1.y}`;
+        }
+        return d;
+      }
+
+      function animate() {
+        // Update points
+        points.forEach((p, i) => {
+          p.phase += p.speed;
+          // Smooth vertical oscillation
+          p.y = p.baseY + Math.sin(p.phase) * 40 + Math.cos(p.phase * 0.7) * 20;
+          
+          // Add some "drift"
+          if (i === pointsCount - 1) {
+            // The last point (tip) moves a bit more
+            p.y += Math.sin(Date.now() * 0.001) * 10;
+          }
+        });
+
+        const d = getSplinePath(points);
+        path.setAttribute('d', d);
+
+        // Update fill path (close the shape to the bottom)
+        const fillD = d + ` L ${width} ${height} L 0 ${height} Z`;
+        fill.setAttribute('d', fillD);
+
+        // Update endpoint position
+        const lastPoint = points[pointsCount - 1];
+        endpoint.setAttribute('transform', `translate(${lastPoint.x}, ${lastPoint.y})`);
+
+        // Update tip price (random walk simulation)
+        if (Math.random() > 0.98) {
+          const currentPrice = parseFloat(tipPrice.textContent.replace('$', ''));
+          const nextPrice = currentPrice + (Math.random() - 0.5) * 0.1;
+          tipPrice.textContent = `$${nextPrice.toFixed(2)}`;
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+  </script>
+
+</body>
+
+</html>
